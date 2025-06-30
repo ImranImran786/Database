@@ -269,32 +269,38 @@ const httpServer = http.createServer(app);
 const io = new Server(httpServer, {
   cors: {
     origin: [
-      "http://localhost:3000",
-      "http://localhost:3001",
-      "http://localhost:3002",
-
-        "https://admin-frontend-alpha-olive.vercel.app/",
-    "https://client-frontend-eta.vercel.app/",
-    "https://driver-frontend-zeta.vercel.app/"
-    ],
+  "http://localhost:3000",
+  "http://localhost:3001",
+  "http://localhost:3002",
+  "https://admin-frontend-alpha-olive.vercel.app",
+  "https://client-frontend-eta.vercel.app",
+  "https://driver-frontend-zeta.vercel.app"
+],
     methods: ["GET", "POST"]
   }
 });
 
 // Middleware
 app.use(cors({
-  origin: [
-    "http://localhost:3000",
-    "http://localhost:3001",
-    "http://localhost:3002",
-
-    "https://admin-frontend-alpha-olive.vercel.app/",
-    "https://client-frontend-eta.vercel.app/",
-    "https://driver-frontend-zeta.vercel.app/"
-  ],
+  origin: function (origin, callback) {
+    const allowedOrigins = [
+      "http://localhost:3000",
+      "http://localhost:3001",
+      "http://localhost:3002",
+      "https://admin-frontend-alpha-olive.vercel.app",
+      "https://client-frontend-eta.vercel.app",
+      "https://driver-frontend-zeta.vercel.app"
+    ];
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
+
 app.use(express.json());
 app.use("/uploads", express.static("uploads"));
 app.use("/api/auth", require("./routes/authRoutes"));
