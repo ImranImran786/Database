@@ -269,9 +269,9 @@ const httpServer = http.createServer(app);
 const io = new Server(httpServer, {
   cors: {
     origin: [
-      // "http://localhost:3000",
-      // "http://localhost:3001",
-      // "http://localhost:3002"
+      "http://localhost:3000",
+      "http://localhost:3001",
+      "http://localhost:3002"
 
         "https://admin-frontend-alpha-olive.vercel.app/",
     "https://client-frontend-eta.vercel.app/",
@@ -284,9 +284,9 @@ const io = new Server(httpServer, {
 // Middleware
 app.use(cors({
   origin: [
-    // "http://localhost:3000",
-    // "http://localhost:3001",
-    // "http://localhost:3002",
+    "http://localhost:3000",
+    "http://localhost:3001",
+    "http://localhost:3002",
 
     "https://admin-frontend-alpha-olive.vercel.app/",
     "https://client-frontend-eta.vercel.app/",
