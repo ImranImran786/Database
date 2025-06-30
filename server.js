@@ -273,9 +273,9 @@ const io = new Server(httpServer, {
       // "http://localhost:3001",
       // "http://localhost:3002"
 
-        "https://admin-frontend-alpha-olive.vercel.app/",
-    "https://client-frontend-eta.vercel.app/",
-    "https://driver-frontend-zeta.vercel.app/"
+        "https://admin-frontend-alpha-olive.vercel.app/login",
+    "https://client-frontend-eta.vercel.app/login",
+    "https://driver-frontend-zeta.vercel.app/login"
     ],
     methods: ["GET", "POST"]
   }
@@ -288,9 +288,9 @@ app.use(cors({
     // "http://localhost:3001",
     // "http://localhost:3002",
 
-    "https://admin-frontend-alpha-olive.vercel.app/",
-    "https://client-frontend-eta.vercel.app/",
-    "https://driver-frontend-zeta.vercel.app/"
+    "https://admin-frontend-alpha-olive.vercel.app/login",
+    "https://client-frontend-eta.vercel.app/login",
+    "https://driver-frontend-zeta.vercel.app/login"
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
